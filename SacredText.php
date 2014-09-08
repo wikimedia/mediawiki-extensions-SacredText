@@ -40,12 +40,11 @@ EOT;
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'SacredText',
-	'author' => '[https://www.mediawiki.org/wiki/User:JonathanWilliford Jonathan Williford], '
-		. '[https://www.mediawiki.org/wiki/User:Leucosticte Leucosticte]',
-	'description' => 'Makes it easy to quote religious scriptures',
+	'author' => array( '[https://www.mediawiki.org/wiki/User:JonathanWilliford Jonathan Williford]',
+		'[https://www.mediawiki.org/wiki/User:Leucosticte Leucosticte]' ),
 	'descriptionmsg' => 'sacredtext-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:SacredText',
-	'version' => '0.0.2',
+	'version' => '0.0.3',
 );
  
 $dir = dirname(__FILE__) . '/';
@@ -147,7 +146,9 @@ $wgSacredChapterAlias["Christian Bible"]["Zep"]="Zephaniah";
 $wgHooks['ParserFirstCallInit'][] = 'efSacredTextParserInit';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'updateSacredTextDB';
 $wgExtensionMessagesFiles['SacredText'] = __DIR__ . '/SacredText.i18n.php';
- 
+$wgMessagesDirs['SacredText'] = __DIR__ . '/i18n';
+$wgExtensionMessagesFiles['SacredTextMagic'] = __DIR__ . '/SacredText.i18n.magic.php';
+
 function efSacredTextParserInit( $parser ) {
 	global $wgSacredUseBibleTag;
 	$parser->setHook( 'sacredtext', 'SacredTextLookup::hookSacredText' );
