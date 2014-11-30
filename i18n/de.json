@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"Purodha"
 		]
 	},
-	"sacredtext-desc": "Ermöglicht die Zitierung von religiösen Schriften"
+	"sacredtext-desc": "Ermöglicht das Zitieren religiöser Schriften"
 }
