@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Raymond"
+			"Raymond",
+			"Umherirrender"
 		]
 	},
-	"sacredtext-desc": "{{desc|name=Sacredtext|url=http://www.mediawiki.org/wiki/Extension:Sacredtext}}"
+	"sacredtext-desc": "{{desc|name=Sacredtext|url=https://www.mediawiki.org/wiki/Extension:Sacredtext}}"
 }
