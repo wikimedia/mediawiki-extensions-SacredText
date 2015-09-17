@@ -160,29 +160,10 @@ function efSacredTextParserInit( $parser ) {
 	return true;
 }
  
-function updateSacredTextDB() {
-	global $wgExtNewTables, $wgSacredUpdateTable;
-	// Abort schema update if the config setting says so; this is, e.g., in case you feel no
-	// need to drop that table and create it again
-	if ( !$wgSacredUpdateTable ) {
-		return true;
+function updateSacredTextDB( DatabaseUpdater $updater ) {
+	if ( $updater->getDB()->getType() == 'mysql' || $updater->getDB()->getType() == 'sqlite' ) {
+		$updater->addExtensionTable( 'sacredtext_verses', __DIR__ . '/SacredText.verses.sql' );
 	}
-	$wgExtNewTables[] = array(
-		'sacredtext_verses1',
-		dirname( __FILE__ ) . '/SacredText.verses.sql' );
-	/*$dir = dirname( __FILE__ ) . '/data/';
-	while( $file = readdir( $dir ) )
-	{
-		if($file == '.' && $file == '..') continue; 
-		if(!is_file($dir.$file)) continue;
-		if(!preg_match('^(.*)\.sql$', $file, $matches)) continue; 
-		$wgExtNewTables[] = array(
-			$matches[1],
-			$dir.$file);
-	}*/
- 
-	$wgExtNewTables[] = array(
-		'sacredtext_verses_kjv_entire',
-		dirname( __FILE__ ) . '/data/bible_kjv_entire.sql' );
+
 	return true;
 }
