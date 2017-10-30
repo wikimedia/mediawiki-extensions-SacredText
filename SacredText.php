@@ -145,7 +145,6 @@ $wgSacredChapterAlias["Christian Bible"]["Zep"]="Zephaniah";
  
 $wgHooks['ParserFirstCallInit'][] = 'efSacredTextParserInit';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'updateSacredTextDB';
-$wgExtensionMessagesFiles['SacredText'] = __DIR__ . '/SacredText.i18n.php';
 $wgMessagesDirs['SacredText'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SacredTextMagic'] = __DIR__ . '/SacredText.i18n.magic.php';
 
