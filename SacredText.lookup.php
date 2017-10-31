@@ -94,7 +94,7 @@ class SacredTextLookup {
 	    }
 	}
  
-	public static function parserFunctionSacredText ( $parser, $param1 = '' ) {
+	public static function parserFunctionHookSacredText ( $parser, $param1 = '' ) {
 		return self::hookSacredText ( $param1, array(), $parser, array() );
 	}
  
