@@ -105,7 +105,7 @@ class SacredTextLookup {
 	public static function lookup( $religtext, $book, $chapternum, $versenums, $lang, $ver,
 		$secondChapterNum, $secondVerseNum ) {
 	    global $wgSacredChapterAlias, $wgDBPrefix;
-	    $dbr = wfGetDB( DB_SLAVE );
+	    $dbr = wfGetDB( DB_REPLICA );
  
 	    if( array_key_exists($religtext, $wgSacredChapterAlias) &&
 	        array_key_exists($book, $wgSacredChapterAlias[$religtext] ) )
