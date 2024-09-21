@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SacredTextLookup {
  
 	public static function parseInput( $input, &$book, &$chapternum, &$versenums,
@@ -96,7 +98,7 @@ class SacredTextLookup {
 	public static function lookup( $religtext, $book, $chapternum, $versenums, $lang, $ver,
 		$secondChapterNum, $secondVerseNum ) {
 	    global $wgSacredChapterAlias, $wgDBPrefix;
-	    $dbr = wfGetDB( DB_REPLICA );
+	    $dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
  
 	    if( array_key_exists($religtext, $wgSacredChapterAlias) &&
 	        array_key_exists($book, $wgSacredChapterAlias[$religtext] ) )
